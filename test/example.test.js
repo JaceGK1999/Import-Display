@@ -1,7 +1,7 @@
 // IMPORT MODULES under test here:
 // import { example } from '../example.js';
 
-import { renderAnimal, renderSoda, renderEnergyFacts } from '../utils.js';
+import { renderAnimal, renderSoda, renderEnergyFacts, renderFamily } from '../utils.js';
 
 const test = QUnit.test;
 
@@ -51,5 +51,17 @@ test('should render a nested list', (expect) => {
         },
     });
     console.log(actual);
+    expect.equal(actual.outerHTML, expected);
+});
+
+test('should render an array list', (expect) => {
+    const expected =
+        '<div class="people"><h2>Dan</h2><h3>Children</h3><ul><li>Tim</li><li>Kate</li><li>Charlie</li></ul></div>';
+
+    const actual = renderFamily({
+        name: 'Dan',
+        children: ['Tim', 'Kate', 'Charlie'],
+    });
+
     expect.equal(actual.outerHTML, expected);
 });

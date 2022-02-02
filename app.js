@@ -1,9 +1,12 @@
 import { animals } from './animals.js';
 import { sodas } from './sodas.js';
-//import { sodaFacts } from './sodaFacts.js';
-import { renderAnimal, renderSoda } from './utils.js';
+import { energyFacts } from './energyBars.js';
+import { peoples } from './people.js';
+import { renderAnimal, renderEnergyFacts, renderSoda, renderFamily } from './utils.js';
 const animalList = document.getElementById('animal-list');
 const sodaList = document.getElementById('soda-list');
+const energyList = document.getElementById('energy-list');
+const familyList = document.getElementById('family-list');
 
 for (let animal of animals) {
     const div = renderAnimal(animal);
@@ -15,7 +18,15 @@ for (let soda of sodas) {
     sodaList.append(div);
 }
 
-// for (let sodaFact of sodaFacts) {
+for (let energyFact of energyFacts) {
+    const div = renderEnergyFacts(energyFact);
+    energyList.append(div);
+}
+
+for (let people of peoples) {
+    const div = renderFamily(people);
+    familyList.append(div);
+}
 
 // }
 // import functions and grab DOM elements
